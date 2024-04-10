@@ -14,8 +14,8 @@ const BigSlider = () => {
   useEffect(() => {
     if (bigSliderRef.current) {
       bigSliderRef.current.style.transform = `translateX(calc(${
-        imgIndex * -100
-      }svw - ${imgIndex * -12 - 36}px))`;
+        imgIndex * -92
+      }vw - ${imgIndex * 32}px)`;
     }
   }, [imgIndex]);
 
@@ -53,24 +53,23 @@ const BigSlider = () => {
               <path d='M217.9 256L345 129c9.4-9.4 9.4-24.6 0-33.9-9.4-9.4-24.6-9.3-34 0L167 239c-9.1 9.1-9.3 23.7-.7 33.1L310.9 417c4.7 4.7 10.9 7 17 7s12.3-2.3 17-7c9.4-9.4 9.4-24.6 0-33.9L217.9 256z'></path>
             </svg>
           </span>
-          <div
-            className={classNames(
-              'flex gap-12 overflow-x-scroll no-scrollbar w-[1372svw] transition-all duration-500 ease-linear'
-            )}
-            ref={bigSliderRef}
-          >
-            {bigSliderItems.map((item, i) => (
-              <div key={i} className='w-[calc(100svw-64px)] max-h-56'>
-                <img
-                  alt=''
-                  src={item.img}
-                  className='object-cover aspect-video w-full h-full  rounded-lg'
-                />
-              </div>
-            ))}
+          <div className='w-full'>
+            <div
+              className='flex gap-12 overflow-x-scroll no-scrollbar w-[calc(1288vw+502px)] transition-all duration-500 ease-linear h-56 lg:h-[580px] pl-[5vw]'
+              ref={bigSliderRef}
+            >
+              {bigSliderItems.map((item, i) => (
+                <div
+                  className='w-[92vw] flex items-center justify-center text-3xl'
+                  key={i}
+                >
+                  {item.id}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-        <div className='w-full flex items-center justify-center gap-3 p-2'>
+        <div className='w-screen flex items-center justify-center gap-3 p-2'>
           {bigSliderItems.map((item, i) => (
             <div
               key={item.id}
@@ -88,3 +87,24 @@ const BigSlider = () => {
 };
 
 export default BigSlider;
+{
+  /* <div
+            className={classNames(
+              'flex gap-12 overflow-x-scroll no-scrollbar w-[1372svw] transition-all duration-500 ease-linear'
+            )}
+            ref={bigSliderRef}
+          >
+            {bigSliderItems.map((item, i) => (
+              <div
+                key={i}
+                className='w-[calc(100svw-64px)] max-h-56 lg:max-h-[580px]'
+              >
+                <img
+                  alt=''
+                  src={item.img}
+                  className='object-cover aspect-video w-full h-full  rounded-lg'
+                />
+              </div>
+            ))}
+          </div> */
+}
