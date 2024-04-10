@@ -11,9 +11,9 @@ const Navbar = () => {
   return (
     <nav
       className={classNames(
-        'w-full h-8 lg:h-12 sticky top-0 transition-all duration-200 bg-main',
+        'w-full h-8 lg:h-12 sticky top-0 transition-all duration-200 bg-main z-50',
         scrollPosition > 100 &&
-          'md:top-2 z-10 md:w-[80%] lg:w-[60%] mx-auto md:rounded-xl px-0'
+          'md:top-2 md:w-[80%] lg:w-[60%] mx-auto md:rounded-xl px-0'
       )}
     >
       <div
@@ -32,11 +32,11 @@ const Navbar = () => {
           <span>Menü</span>
           <div
             className={classNames(
-              'absolute z-20 w-full h-screen bg-secondaryLight top-8 left-0',
+              'absolute w-full h-screen bg-secondaryLight top-8 left-0 z-50',
               openMenu ? 'block' : 'hidden'
             )}
           >
-            <ul className='flex flex-col items-start gap-4 list-none p-4'>
+            <ul className='flex flex-col items-start gap-8 list-none p-4'>
               <li
                 className='flex items-end text-fine hover:text-shine'
                 onClick={() => setOpenMenu(false)}
@@ -271,7 +271,7 @@ const Navbar = () => {
                         <p className='text-fine text-xl'>Seçme koleksiyonlar</p>
 
                         <p className='hover:bg-shine p-2 rounded-lg hover:text-main ml-4 mt-2'>
-                          Avrupa'da üretilmiştir
+                          Avrupa&apos;da üretilmiştir
                         </p>
                       </div>
                     </div>
