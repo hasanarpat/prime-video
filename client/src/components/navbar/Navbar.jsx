@@ -177,9 +177,11 @@ const Navbar = () => {
           </svg>
         </div>
         <div>
-          <h1 className='text-shine text-base lg:text-lg xl:text-2xl font-bold whitespace-nowrap'>
-            prime video
-          </h1>
+          <Link to='/'>
+            <h1 className='text-shine text-base lg:text-lg xl:text-2xl font-bold whitespace-nowrap'>
+              prime video
+            </h1>
+          </Link>
         </div>
         <div className='hidden lg:block text-sm xl:text-lg'>
           <ul className='flex items-center list-none'>
