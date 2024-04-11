@@ -4,11 +4,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        main: '#00050D',
+        main: '#000014',
         shine: '#FFF',
         fine: '#999999',
         secondary: '#33373D',
         secondaryLight: '#191E25',
+        mainBlue: '#3c78b4',
       },
     },
   },

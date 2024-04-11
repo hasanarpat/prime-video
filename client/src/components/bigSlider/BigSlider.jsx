@@ -30,10 +30,10 @@ const BigSlider = () => {
   return (
     <section className='w-full'>
       <div className='w-full flex flex-col gap-1'>
-        <div className='relative pl-4'>
+        <div className='relative group'>
           <span
             className={classNames(
-              'absolute top-1/2 left-4 z-10',
+              'absolute top-1/2 left-4 z-10 cursor-pointer hidden group-hover:block',
               imgIndex == 0 && 'hidden'
             )}
             onClick={() => handleRotation('left')}
@@ -51,8 +51,8 @@ const BigSlider = () => {
           </span>
           <span
             className={classNames(
-              'absolute top-1/2 left-[calc(100svw-40px)] z-10',
-              imgIndex >= 13 && 'hidden'
+              'absolute top-1/2 left-[calc(100svw-40px)] z-10 cursor-pointer hidden group-hover:block',
+              imgIndex >= 13 && 'hidden group-hover:hidden'
             )}
             onClick={() => handleRotation('right')}
           >
@@ -67,7 +67,7 @@ const BigSlider = () => {
               <path d='M217.9 256L345 129c9.4-9.4 9.4-24.6 0-33.9-9.4-9.4-24.6-9.3-34 0L167 239c-9.1 9.1-9.3 23.7-.7 33.1L310.9 417c4.7 4.7 10.9 7 17 7s12.3-2.3 17-7c9.4-9.4 9.4-24.6 0-33.9L217.9 256z'></path>
             </svg>
           </span>
-          <div className='w-full z-10'>
+          <div className='w-full z-10 overflow-x-hidden'>
             <div
               className='flex gap-12 overflow-x-scroll no-scrollbar w-[calc(1288vw+502px)] transition-all duration-500 ease-linear h-56 lg:h-[580px] pl-[3vw]'
               ref={bigSliderRef}
