@@ -16,7 +16,7 @@ const BigSlider = () => {
     if (bigSliderRef.current) {
       bigSliderRef.current.style.transform = `translateX(calc(${
         imgIndex * -92
-      }vw - ${imgIndex * 32}px)`;
+      }vw + ${imgIndex * -32}px)`;
     }
   }, [imgIndex]);
 
@@ -27,6 +27,7 @@ const BigSlider = () => {
 
     return () => clearInterval(intervalId);
   }, []);
+
   return (
     <section className='w-full'>
       <div className='w-full flex flex-col gap-1'>
@@ -69,11 +70,11 @@ const BigSlider = () => {
           </span>
           <div className='w-full z-10 overflow-x-hidden'>
             <div
-              className='flex gap-12 overflow-x-scroll no-scrollbar w-[calc(1288vw+502px)] transition-all duration-500 ease-linear h-56 lg:h-[580px] pl-[3vw]'
+              className='flex overflow-x-scroll no-scrollbar w-[calc(1288vw+502px)] transition-all duration-500 ease-linear h-56 lg:h-[580px] pl-[3vw]'
               ref={bigSliderRef}
             >
               {bigSliderItems.map((item, i) => (
-                <div className='w-[92vw] relative' key={i}>
+                <div className='w-[92vw] relative ml-8' key={i}>
                   <img
                     alt=''
                     src={item.img}
@@ -131,7 +132,7 @@ const BigSlider = () => {
                           <span className='text-xl font-semibold'>Oynat</span>
                         </Link>
                         <span className='flex items-center gap-4 ml-4'>
-                          <button className='bg-white/40 text-shine p-3 flex items-center justify-center rounded-full hover:bg-white hover:text-black hover:scale-110 transition-colors duration-200 ease-linear group relative'>
+                          <button className='bg-white/40 text-shine p-3 flex items-center justify-center rounded-full hover:bg-white hover:text-black hover:scale-110 transition-colors duration-200 ease-linear group add-button relative'>
                             <svg
                               stroke='currentColor'
                               fill='currentColor'
@@ -142,11 +143,8 @@ const BigSlider = () => {
                             >
                               <path d='M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z'></path>
                             </svg>
-                            <p className='text-lg font-medium hidden absolute group-hover:block top-16 -left-[75%] bg-white whitespace-nowrap p-3 py-1 rounded-lg transition-all duration-200 ease-linear'>
-                              İzleme Listesi
-                            </p>
                           </button>
-                          <button className='bg-white/40 text-shine p-3 flex items-center justify-center rounded-full hover:bg-white hover:text-black hover:scale-110 transition-colors duration-200 ease-linear group relative'>
+                          <button className='bg-white/40 text-shine p-3 flex items-center justify-center rounded-full hover:bg-white hover:text-black hover:scale-110 transition-colors duration-200 ease-linear group info-button relative'>
                             <svg
                               stroke='currentColor'
                               fill='currentColor'
@@ -158,10 +156,13 @@ const BigSlider = () => {
                               <path d='M235.4 172.2c0-11.4 9.3-19.9 20.5-19.9 11.4 0 20.7 8.5 20.7 19.9s-9.3 20-20.7 20c-11.2 0-20.5-8.6-20.5-20zm1.4 35.7H275V352h-38.2V207.9z'></path>
                               <path d='M256 76c48.1 0 93.3 18.7 127.3 52.7S436 207.9 436 256s-18.7 93.3-52.7 127.3S304.1 436 256 436c-48.1 0-93.3-18.7-127.3-52.7S76 304.1 76 256s18.7-93.3 52.7-127.3S207.9 76 256 76m0-28C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48z'></path>
                             </svg>
-                            <p className='text-lg font-medium hidden absolute group-hover:block top-16 -left-[75%] bg-white whitespace-nowrap p-3 py-1 rounded-lg transition-all duration-200 ease-linear'>
-                              Ayrıntılar
-                            </p>
                           </button>
+                          <p className='text-lg font-medium hidden absolute group-[.info-button]:block top-16 -left-[75%] bg-white whitespace-nowrap p-3 py-1 rounded-lg transition-all duration-200 ease-linear'>
+                            Ayrıntılar
+                          </p>
+                          <p className='text-lg font-medium hidden absolute group-[.add-button]:block top-16 -left-[75%] group-[.add-button]:bg-white whitespace-nowrap p-3 py-1 rounded-lg transition-all duration-200 ease-linear'>
+                            İzleme Listesi
+                          </p>
                         </span>
                       </div>
                     </div>
