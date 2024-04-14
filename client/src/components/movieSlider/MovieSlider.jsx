@@ -18,7 +18,6 @@ const MovieSlider = ({ title }) => {
       sliderRef.current.style.transform = `translateX(-${
         (100 / bigSliderItems.length) * 4 * slideIndex
       }%)`;
-      console.log(slideIndex);
     }
   }, [slideIndex]);
 
