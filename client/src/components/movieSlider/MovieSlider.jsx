@@ -4,7 +4,7 @@ import { bigSliderItems } from '../../lib/dummy';
 import classNames from 'classnames';
 import { useEffect, useRef, useState } from 'react';
 
-const MovieSlider = ({ title }) => {
+const MovieSlider = ({ title, offerMore }) => {
   const [slideIndex, setSlideIndex] = useState(0);
   const sliderRef = useRef(null);
   const handleRotation = (direction) => {
@@ -26,9 +26,23 @@ const MovieSlider = ({ title }) => {
       <div className='flex items-center gap-2 text-[21px] font-bold'>
         <span className='text-mainBlue'>Prime</span>
         <span>{title}</span>
-        <Link to='/' className='ml-8'>
-          Daha fazlasını görüntüle
-        </Link>
+        {offerMore && (
+          <Link to='/' className='ml-8 flex items-center gap-1'>
+            Daha fazlasını görüntüle
+            <svg
+              stroke='currentColor'
+              fill='currentColor'
+              strokeWidth='0'
+              viewBox='0 0 512 512'
+              height='1em'
+              width='1em'
+              xmlns='http://www.w3.org/2000/svg'
+              className='mt-0.5'
+            >
+              <path d='M294.1 256L167 129c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.3 34 0L345 239c9.1 9.1 9.3 23.7.7 33.1L201.1 417c-4.7 4.7-10.9 7-17 7s-12.3-2.3-17-7c-9.4-9.4-9.4-24.6 0-33.9l127-127.1z'></path>
+            </svg>
+          </Link>
+        )}
       </div>
       <div className='mt-4 relative group'>
         <span
