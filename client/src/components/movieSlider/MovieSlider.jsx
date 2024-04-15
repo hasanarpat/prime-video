@@ -24,10 +24,15 @@ const MovieSlider = ({ title, offerMore }) => {
   return (
     <div className='pl-8 lg:pl-16'>
       <div className='flex items-center gap-2 text-[21px] font-bold'>
-        <span className='text-mainBlue'>Prime</span>
-        <span>{title}</span>
+        <div className='flex flex-col md:flex-row md:gap-2'>
+          <span className='text-mainBlue'>Prime</span>
+          <span>{title}</span>
+        </div>
         {offerMore && (
-          <Link to='/' className='ml-8 flex items-center gap-1'>
+          <Link
+            to='/'
+            className='ml-8 flex items-center gap-1 flex-grow whitespace-nowrap'
+          >
             Daha fazlasını görüntüle
             <svg
               stroke='currentColor'
