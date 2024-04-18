@@ -1,5 +1,6 @@
 import BigSlider from '../../components/bigSlider/BigSlider';
 import MovieSlider from '../../components/movieSlider/MovieSlider';
+import VideoSlider from '../../components/videoSlider/VideoSlider';
 
 const Home = () => {
   return (
@@ -9,7 +10,7 @@ const Home = () => {
         title='Seslendirmeli Tv dizileri ve filmler'
         offerMore={true}
       />
-      <h1>Home</h1>
+      <VideoSlider />
       <MovieSlider title='Türkiyede ilk 10' offerMore={false} />
       <MovieSlider title='Önerilen Filmler' offerMore={false} />
       <MovieSlider title='İzlemeye Devam Et' offerMore={false} />
