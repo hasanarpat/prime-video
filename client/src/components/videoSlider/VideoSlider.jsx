@@ -13,15 +13,15 @@ const VideoSlider = () => {
     direction === 'left' && slideIndex > 0
       ? setSlideIndex((prev) => prev - 1)
       : direction === 'right' &&
-        slideIndex < 7 &&
+        slideIndex < 6 &&
         setSlideIndex((prev) => prev + 1);
   };
 
   useEffect(() => {
     if (sliderRef.current) {
-      sliderRef.current.style.transform = `translateX(-${
-        288 * slideIndex + 64 * slideIndex
-      }px)`;
+      sliderRef.current.style.transform = `translateX(calc(${
+        -20 * slideIndex
+      }vw + ${-64 * slideIndex}px))`;
     }
   }, [slideIndex]);
 
@@ -43,7 +43,7 @@ const VideoSlider = () => {
             <svg
               stroke='currentColor'
               fill='currentColor'
-              strokeWidth='0'
+              strokeWidth='2'
               viewBox='0 0 16 16'
               height='1em'
               width='1em'
@@ -79,7 +79,7 @@ const VideoSlider = () => {
                     />
                     Your browser does not support the video tag.
                   </video>{' '}
-                  <div className='absolute bg-gray-500/50 rounded-full w-10 h-10 p-2 top-12 right-16 cursor-pointer hover:scale-125'>
+                  <div className='absolute bg-gray-500/50 rounded-full w-10 h-10 p-2 top-12 right-16 cursor-pointer hover:scale-120'>
                     {muted ? (
                       <svg
                         stroke='currentColor'
@@ -109,7 +109,7 @@ const VideoSlider = () => {
                 </>
               )}
 
-              <div className='absolute left-4 bottom-44 w-1/2 h-max flex flex-col justify-between gap-2 pl-8'>
+              <div className='absolute left-4 bottom-44 2xl:bottom-[340px] w-1/2 h-max flex flex-col justify-between gap-2 pl-8'>
                 <p>Türkiye&apos;de 3 numarada</p>
                 <h1 className='text-4xl font-bold xl:text-7xl my-3'>
                   Oppenheimer
@@ -198,10 +198,10 @@ const VideoSlider = () => {
               </div>
             </div>
           </div>
-          <div className='absolute bottom-0 max-h-40 max-w-max h-full'>
+          <div className='absolute bottom-0 max-h-40 max-w-max h-full 2xl:bottom-32'>
             <div className='relative group h-full'>
               <span
-                className='absolute bottom-0 items-center justify-center w-16 rounded-md left-0 z-10 cursor-pointer hidden rotate-180  group-hover:flex bg-black/20 shadow-2xl shadow-black/40 h-full'
+                className='absolute bottom-0 items-center justify-center w-16 rounded-md left-0 z-10 cursor-pointer hidden rotate-180  group-hover:flex bg-black/20 shadow-2xl shadow-black/40 h-24 lg:h-full 2xl:top-1/3'
                 style={{
                   display: slideIndex === 0 && 'none',
                 }}
@@ -219,7 +219,7 @@ const VideoSlider = () => {
                 </svg>
               </span>
               <span
-                className='absolute top-0 items-center justify-center w-16 rounded-md left-[calc(100vw-3.75rem)] z-10 cursor-pointer hidden rotate-180  group-hover:flex bg-black/20 shadow-2xl shadow-black/40 h-full'
+                className='absolute top-0 items-center justify-center w-16 rounded-md left-[calc(100vw-3.75rem)] z-10 cursor-pointer hidden rotate-180  group-hover:flex bg-black/20 shadow-2xl shadow-black/40 h-24 lg:h-full 2xl:top-1/3'
                 onClick={() => handleRotation('right')}
               >
                 <svg
@@ -234,13 +234,13 @@ const VideoSlider = () => {
                 </svg>
               </span>
               <div
-                className='flex gap-12 max-w-max transition-all duration-500 ease-linear absolute bottom-0 pl-8'
+                className='flex gap-12 max-w-max transition-all duration-500 ease-linear absolute top-0 pl-8'
                 ref={sliderRef}
               >
                 {bigSliderItems.slice(0, 10).map((item, i) => (
                   <Link
                     to={`/play/${item.id}`}
-                    className='w-72 h-40 shrink-0 relative rounded-md ml-4'
+                    className='w-[20vw] aspect-[16/9] shrink-0 relative rounded-md ml-4'
                     key={i}
                   >
                     <span className='absolute text-8xl h-full flex items-center justify-center -left-11 -z-10 font-bold opacity-50'>
@@ -249,7 +249,7 @@ const VideoSlider = () => {
                     <img
                       src={item.img}
                       alt=''
-                      className='w-full h-full object-cover'
+                      className='w-full h-full object-cover rounded-lg'
                     />
                   </Link>
                 ))}
