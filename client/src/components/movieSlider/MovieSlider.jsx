@@ -53,7 +53,7 @@ const MovieSlider = ({ title, offerMore }) => {
         <span
           className={classNames(
             'absolute top-0 items-center justify-center w-10 rounded-md -left-12 z-10 cursor-pointer hidden group-hover:flex bg-black/20 shadow-2xl shadow-black/40 h-full',
-            slideIndex == 0 && 'hidden'
+            slideIndex == 0 && 'hidden group-hover:hidden'
           )}
           onClick={() => handleRotation('left')}
         >
