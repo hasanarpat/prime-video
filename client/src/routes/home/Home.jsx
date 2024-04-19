@@ -1,4 +1,5 @@
 import BigSlider from '../../components/bigSlider/BigSlider';
+import FlexGallery from '../../components/flexGallery/FlexGallery';
 import MovieSlider from '../../components/movieSlider/MovieSlider';
 import VideoSlider from '../../components/videoSlider/VideoSlider';
 
@@ -14,6 +15,7 @@ const Home = () => {
       <MovieSlider title='Türkiyede ilk 10' offerMore={false} />
       <MovieSlider title='Önerilen Filmler' offerMore={false} />
       <MovieSlider title='İzlemeye Devam Et' offerMore={false} />
+      <FlexGallery />
     </div>
   );
 };
